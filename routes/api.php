@@ -30,11 +30,14 @@ Route::group(['middleware'=>'api',"prefix"=>"auth"],function(){
     Route::get("user","API\AuthController@user");
     Route::get("medecinAlertes","API\MedecinController@medecinAlertes");
     Route::get("medecinPatients","API\MedecinController@medecinPatients");
+    Route::post("ajoutReponse","API\MedecinController@ajoutReponse");
 });
 
 Route::group(['middleware' => 'api',"prefix"=>"patient"], function ($router) {
 
     Route::post('login', 'API\PatientController@login');
     Route::post("patientAlertes","API\PatientController@patientAlertes");
+    Route::post("ajoutAlerte","API\PatientController@ajoutAlerte");
+   
 
 });
