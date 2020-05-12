@@ -4,6 +4,8 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class AuthController extends Controller
 {
@@ -41,6 +43,12 @@ class AuthController extends Controller
     public function me()
     {
         return response()->json(auth()->user());
+    }
+
+    public function user(Request $request)
+    {
+        $user=User::find(Auth::user()->id);
+        return response()->json($user);
     }
 
     /**

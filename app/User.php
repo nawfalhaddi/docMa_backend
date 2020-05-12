@@ -9,6 +9,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
+    public function patients()
+    {
+        return $this->belongsToMany('App\Patient');
+    }
+    public function alertes(){
+        return $this->hasMany('App\Alerte');
+    }
 
     /**
      * The attributes that are mass assignable.
